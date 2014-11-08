@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="/bower_components/angular-material/themes/default-theme.css">
+  <link rel="stylesheet" type="text/css" href="/css/app.css">
+</head>
+
+<body ng-app="twitterApp">
+  <h1>Twitter Live Search</h1>
+  <hr/>
+  <div ng-controller="AppCtrl" class="dynamicTabs">
+
+    <form ng-submit="addTab(tTitle,tContent)" flex>
+      <div layout="vertical" layout-sm="horizontal" layout-padding layout-align="left center">
+        <span class="title">New Search:</span>
+        <md-text-float label="Tab Name" ng-model="tTitle"></md-text-float>
+        <md-text-float label="Search (#awesome)" ng-model="tContent"></md-text-float>
+        <md-button class="md-primary" type="submit" style="max-height: 40px; margin-top:20px;" ng-disabled="!tContent || !tTitle" aria-label="Add New Search">Add New Search</md-button>
+      </div>
+    </form>
+
+    <md-tabs selected="selectedIndex">
+      <md-tab ng-repeat="tab in tabs" on-select="onTabSelected(tab)" label="{{tab.title}}">
+
+        <div ng-class="tab.style" layout="vertical" layout-fill layout-align="center center">
+
+          <div layout-padding>
+            <md-button aria-label="Remove" class="remove-tab md-warn" ng-disabled="tabs.length == 1" ng-click="removeTab( tab )">Remove Search
+            </md-button>
+          </div>
+
+          <div flex class="tab-text">
+            <md-card ng-repeat="t in tweets track by $index">
+              <div layout="horizontal" layout-align="center center">
+                <div flex="33">
+                  <div>
+                    <img ng-src="{{t.user.profile_image_url}}" class="md-card-image">
+                  </div>
+                </div>
+                <div flex>
+                  <div>
+                    <h2>{{t.user.screen_name}}</h2>
+                  </div>
+                </div>
+              </div>
+
+              <p layout-padding>
+                {{t.text}}
+              </p>
+              <div layout="horizontal" layout-align="center center">
+                <div flex>
+                  <div>
+                    <p>Created at : {{t.created_at}}</p>
+                  </div>
+                </div>
+                <div flex="15">
+                  <div>
+                    <div layout="horizontal" layout-align="center center">
+                      <div flex>
+                        <md-button aria-label="{{t.text}}" ng-href="http://twitter.com/{{t.user.screen_name}}/status/{{t.id_str}}" class="md-fab" target="_blank">
+                          <md-icon icon="/imgs/link.png"></md-icon>
+                        </md-button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-card>
+          </div>
+        </div>
+  </div>
+  </md-tab>
+  </md-tabs>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/hammerjs/hammer.js"></script>
+  <script src="/bower_components/angular-material/angular-material.js"></script>
+  <script type="text/javascript" src="/bower_components/angular-socket-io/socket.min.js"></script>
+  <script type="text/javascript" src="/js/app.js"></script>
+
+</body>
+
+</html>

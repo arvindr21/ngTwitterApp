@@ -1,0 +1,87 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  height: auto;
+  padding: 20px;
+}
+body.login {
+  background: #0288b1;
+  font-family: calibri;
+  font-size: 18px;
+}
+h1 {
+  text-align: center;
+}
+.login h1 {
+  margin-top: 10%;
+  color: white;
+  text-decoration: underline;
+}
+.login-wrapper {
+  display: block;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+  margin: 36px;
+  padding: 18px;
+  text-align: center;
+  background: white;
+}
+md-card {
+  background: #fff;
+  max-height: 300px;
+  width: 900px;
+}
+md-card .md-card-image {
+  width: 100px;
+}
+.dynamicTabs md-tabs .md-view {
+  background: #EEE;
+}
+.dynamicTabs .tab-text {
+  margin-bottom: 32px;
+}
+.dynamicTabs .md-button {
+  display: block;
+}
+.dynamicTabs .tab1 {
+  background-color: #abd6e4;
+  min-height: 300px;
+}
+.dynamicTabs .tab2 {
+  background-color: #94caa6;
+  min-height: 300px;
+}
+.dynamicTabs .tab3 {
+  background-color: #c4b5a2;
+  min-height: 300px;
+}
+.dynamicTabs .tab4 {
+  background-color: #e3cde8;
+  min-height: 300px;
+}
+.dynamicTabs .title {
+  padding-top: 8px;
+  padding-right: 8px;
+  text-align: left;
+  text-transform: uppercase;
+  color: #888;
+  margin-top: 24px;
+}
+.dynamicTabs [layout-align] > * {
+  margin-left: 8px;
+}
+.dynamicTabs form > [layout] > * {
+  margin-left: 8px;
+}
+.dynamicTabs .long > input {
+  width: 264px;
+}
+.dynamicTabs .md-button {
+  max-height: 30px;
+}
+.dynamicTabs .md-button.add-tab {
+  margin-top: 20px;
+  max-height: 30px !important;
+}

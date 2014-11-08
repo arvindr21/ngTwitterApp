@@ -1,0 +1,13 @@
+{
+  "name": "ngTwitterApp",
+  "version": "0.1.0",
+  "authors": [
+    "arvindr21 <arvind.ravulavaru@gmail.com>"
+  ],
+  "description": "Angularjs, Material Design and Twitter Streams - A Twitter Live Search App",
+  "license": "MIT",
+  "dependencies": {
+    "angular-material": "~0.5.1",
+    "angular-socket-io": "~0.6.0"
+  }
+}
